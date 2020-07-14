@@ -16,6 +16,9 @@ db = SQLAlchemy(app)
 
 from models import Result
 
+@app.route('/debug', methods=['GET'])
+def debug():
+    return app.config['SQLALCHEMY_DATABASE_URI']
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
